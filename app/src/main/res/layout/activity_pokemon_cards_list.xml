@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.PokemonCardsList">
+
+    <TextView
+        android:id="@+id/activity_pokemon_cards_list_search_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_pokemon_cards_list_search_title"
+        android:textSize="22sp"
+        android:padding="8dp"
+        android:background="@color/red_pokeball"
+        android:textColor="@color/black_pokeball"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <SearchView
+        android:id="@+id/activity_pokemon_cards_list_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:queryHint="@string/activity_pokemon_cards_list_search_input_hint"
+        android:background="@color/white_pokeball"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_title" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
