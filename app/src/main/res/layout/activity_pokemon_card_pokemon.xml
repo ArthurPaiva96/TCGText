@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.PokemonCardPokemonActivity">
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_hp_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Blaziken" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_hp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/activity_pokemon_card_pokemon_hp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_pokemon_pokemon_type_text"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_value"
+        app:layout_constraintStart_toEndOf="@id/activity_pokemon_card_pokemon_name" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toEndOf="@id/activity_pokemon_card_pokemon_hp_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_pokemon_pokemon_type_text"
+        tools:text="100"/>
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_pokemon_type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/activity_pokemon_card_pokemon_pokemon_type"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_pokemon_type_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_card_pokemon_name" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_pokemon_type_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_card_type_text"
+        app:layout_constraintStart_toEndOf="@+id/activity_pokemon_card_pokemon_pokemon_type_text"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_card_pokemon_name"
+        tools:text="Fogo" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_card_type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/activity_pokemon_card_pokemon_card_type"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_card_type_value"
+        app:layout_constraintStart_toEndOf="@id/activity_pokemon_card_pokemon_pokemon_type_value"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_card_pokemon_name" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_card_type_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/activity_pokemon_card_pokemon_card_type_text"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_card_pokemon_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Estágio 2"
+        />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_text_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_pokemon_card_pokemon_text_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_pokemon_pokemon_type_value"
+        app:layout_constraintBottom_toTopOf="@id/activity_pokemon_cards_pokemon_text_values"/>
+
+    <ListView
+        android:id="@+id/activity_pokemon_cards_pokemon_text_values"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_pokemon_text_text"
+
+        tools:listitem="@layout/item_pokemon_card_pokemon_ability" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_attacks_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_pokemon_card_pokemon_attacks_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_cards_pokemon_text_values"
+        />
+
+    <ListView
+        android:id="@+id/activity_pokemon_cards_pokemon_attacks_values"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_pokemon_attacks_text"
+        tools:listitem="@layout/item_pokemon_card_pokemon_attack" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_weakness_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/activity_pokemon_card_pokemon_weakness"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_weakness_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_cards_pokemon_attacks_values" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_weakness_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_resistance_text"
+        app:layout_constraintStart_toEndOf="@+id/activity_pokemon_card_pokemon_weakness_text"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_pokemon_attacks_values"
+        tools:text="Água x2" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_resistance_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/activity_pokemon_card_pokemon_resistance_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_resistance_value"
+        app:layout_constraintStart_toEndOf="@id/activity_pokemon_card_pokemon_weakness_value"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_pokemon_attacks_values" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_resistance_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_pokemon_card_pokemon_resistance_text"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_pokemon_attacks_values"
+        tools:text="Grama -20" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_retreat_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/activity_pokemon_card_pokemon_treat_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_pokemon_retreat_value"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_pokemon_weakness_text" />
+
+    <TextView
+        android:id="@+id/activity_pokemon_card_pokemon_retreat_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/activity_pokemon_card_pokemon_retreat_text"
+        app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_pokemon_weakness_text"
+        tools:text="2" />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

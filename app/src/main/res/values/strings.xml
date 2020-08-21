@@ -2,5 +2,16 @@
     <string name="app_name">TCGText</string>
     <string name="activity_pokemon_cards_list_search_title">Busque o nome da carta de Pokémon:</string>
     <string name="activity_pokemon_cards_list_search_input_hint">Digite o nome da carta aqui</string>
+    <string name="activity_pokemon_cards_list_search_divider">Divisor preto pequeno para o barra de busca parecer uma pokébola</string>
+    <string name="item_pokemon_card_type_text">Tipo:</string>
+    <string name="item_pokemon_card_number_text">Número:</string>
+    <string name="activity_pokemon_card_pokemon_hp">HP:</string>
+    <string name="activity_pokemon_card_pokemon_card_type">Tipo de carta:</string>
+    <string name="activity_pokemon_card_pokemon_pokemon_type">Tipo:</string>
+    <string name="activity_pokemon_card_pokemon_text_text">Habilidade da carta:</string>
+    <string name="activity_pokemon_card_pokemon_attacks_text">Ataques do Pokémon:</string>
+    <string name="activity_pokemon_card_pokemon_weakness">Fraqueza:</string>
+    <string name="activity_pokemon_card_pokemon_resistance_text">Resistência:</string>
+    <string name="activity_pokemon_card_pokemon_treat_text">Custo de Recuar:</string>
     <!-- Strings used for fragments for navigation -->
 </resources>

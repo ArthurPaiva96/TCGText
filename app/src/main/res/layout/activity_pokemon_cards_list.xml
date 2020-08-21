@@ -3,37 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.PokemonCardsList">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/activity_pokemon_cards_list_search_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/activity_pokemon_cards_list_search_title"
-        android:textSize="22sp"
+        android:background="@color/red_pokeball_top"
         android:padding="8dp"
-        android:background="@color/red_pokeball"
+        android:text="@string/activity_pokemon_cards_list_search_title"
         android:textColor="@color/black_pokeball"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/activity_pokemon_cards_list_search_divisor"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/black_pokeball"
+        android:contentDescription="@string/activity_pokemon_cards_list_search_divider"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_title"
+        tools:layout_editor_absoluteX="82dp" />
 
 
     <SearchView
         android:id="@+id/activity_pokemon_cards_list_search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white_pokeball"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
         android:paddingEnd="8dp"
-        android:iconifiedByDefault="false"
-        android:inputType="text"
         android:queryHint="@string/activity_pokemon_cards_list_search_input_hint"
-        android:background="@color/white_pokeball"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_title" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_divisor" />
+
+
+    <ListView
+        android:id="@+id/activity_pokemon_cards_list_list_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_bar"
+        tools:listitem="@layout/item_pokemon_card" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
