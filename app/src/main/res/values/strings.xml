@@ -8,7 +8,7 @@
     <string name="activity_pokemon_card_pokemon_hp">HP:</string>
     <string name="activity_pokemon_card_pokemon_card_type">Tipo de carta:</string>
     <string name="activity_pokemon_card_pokemon_pokemon_type">Tipo:</string>
-    <string name="activity_pokemon_card_pokemon_text_text">Habilidade da carta:</string>
+    <string name="activity_pokemon_card_pokemon_text_text">Habilidade do Pokémon:</string>
     <string name="activity_pokemon_card_pokemon_attacks_text">Ataques do Pokémon:</string>
     <string name="activity_pokemon_card_pokemon_weakness">Fraqueza:</string>
     <string name="activity_pokemon_card_pokemon_resistance_text">Resistência:</string>

@@ -1,5 +1,6 @@
 package com.arthurpaiva96.tcgtext.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -32,6 +33,8 @@ public class PokemonCardsListActivity extends AppCompatActivity {
         searchView.setSubmitButtonEnabled(true);
 
         configureListView();
+
+        startActivity(new Intent(this, PokemonCardPokemonActivity.class));
 
     }
 
