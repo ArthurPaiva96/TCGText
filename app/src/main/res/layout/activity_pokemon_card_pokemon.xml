@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.activity.PokemonCardPokemonActivity">
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -103,7 +102,7 @@
                 tools:text="Estágio 2" />
 
             <TextView
-                android:id="@+id/activity_pokemon_card_pokemon_text_text"
+                android:id="@+id/activity_pokemon_card_card_text_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -120,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_pokemon_text_text"/>
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_text_text"/>
 
 
 

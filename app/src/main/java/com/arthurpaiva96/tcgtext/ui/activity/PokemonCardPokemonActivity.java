@@ -34,6 +34,8 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
 
         fillCardInfo(blaziken);
 
+        //TODO set title as the card code
+
     }
 
     private void configurePokemonAbilitiesList(PokemonCardPokemon pokemon) {

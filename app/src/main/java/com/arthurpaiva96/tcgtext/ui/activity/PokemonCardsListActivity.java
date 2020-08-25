@@ -33,9 +33,7 @@ public class PokemonCardsListActivity extends AppCompatActivity {
         searchView.setSubmitButtonEnabled(true);
 
         configureListView();
-
-        startActivity(new Intent(this, PokemonCardPokemonActivity.class));
-
+        
     }
 
     private void configureListView() {

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.PokemonCardActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/activity_pokemon_card_card_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Professora Juniper" />
+
+            <TextView
+                android:id="@+id/activity_pokemon_card_card_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/activity_pokemon_card_card_type_text_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_card_text_text"
+                app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_card_type_value"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_name" />
+
+
+            <TextView
+                android:id="@+id/activity_pokemon_card_card_type_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_card_text_text"
+                app:layout_constraintStart_toEndOf="@id/activity_pokemon_card_card_type_text"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_name"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Treinador - Apoiador" />
+
+            <TextView
+                android:id="@+id/activity_pokemon_card_card_text_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/activity_pokemon_card_card_text_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_type_text" />
+
+            <TextView
+                android:id="@+id/activity_pokemon_card_card_text_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_text_text"
+                tools:text="Discard your hand and draw 7 cards."/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
