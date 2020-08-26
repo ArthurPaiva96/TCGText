@@ -1,6 +1,8 @@
 package com.arthurpaiva96.tcgtext.model.pokemon;
 
-public class PokemonAbility {
+import java.io.Serializable;
+
+public class PokemonAbility implements Serializable {
     String type;
     String name;
     String text;

@@ -1,8 +1,9 @@
 package com.arthurpaiva96.tcgtext.model.pokemon;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PokemonCardPokemon extends PokemonCard {
+public class PokemonCardPokemon extends PokemonCard implements Serializable {
 
     String pokemonType;
     String hP;

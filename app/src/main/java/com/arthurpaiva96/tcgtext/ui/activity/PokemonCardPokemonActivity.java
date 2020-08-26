@@ -1,6 +1,7 @@
 package com.arthurpaiva96.tcgtext.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,29 +17,44 @@ import com.arthurpaiva96.tcgtext.model.pokemon.PokemonAttack;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCardPokemon;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;
+
 public class PokemonCardPokemonActivity extends AppCompatActivity {
+
+    private PokemonCardPokemon pokemon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_card_pokemon);
 
-        PokemonCardPokemon blaziken = generatePokemonCardTemp();
 
-        configurePokemonAbilitiesList(blaziken);
 
-        configurePokemonAttacksList(blaziken);
+        //TODO create a view for the activity
 
-        fillCardInfo(blaziken);
+        Intent intent = getIntent();
+        if(intent.hasExtra(POKEMON_CARD_EXTRA_STRING)){
 
-        //TODO set title as the card code
+            this.pokemon = (PokemonCardPokemon) intent.getSerializableExtra(POKEMON_CARD_EXTRA_STRING);
+
+            configurePokemonAbilitiesList();
+
+            configurePokemonAttacksList();
+
+            fillCardInfo();
+
+            //TODO set title as the card code
+        }
+
+
+
+
 
     }
 
-    private void configurePokemonAbilitiesList(PokemonCardPokemon pokemon) {
+    private void configurePokemonAbilitiesList() {
 
         LinearLayout pokemonAbilities = findViewById(R.id.activity_pokemon_card_pokemon_text_relative_layout);
 
@@ -70,7 +86,7 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
 
     }
 
-    private void configurePokemonAttacksList(PokemonCardPokemon pokemon) {
+    private void configurePokemonAttacksList() {
 
         LinearLayout pokemonAttacks = findViewById(R.id.activity_pokemon_card_pokemon_attacks_relative_layout);
 
@@ -105,31 +121,8 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
     }
 
 
-    //TODO delete when the api call is completed
-    private PokemonCardPokemon generatePokemonCardTemp() {
-        PokemonAbility firestarter = new PokemonAbility("Poké-Power", "Firestarter", "Once during your turn (before your attack), " +
-                "you may attach a Fire Energy card from your discard pile to 1 of your Benched Pokémon. This power can't be used if Blaziken is affected by a Special Condition.");
 
-        PokemonAttack firestream = new PokemonAttack("Fogo/Incolor/Incolor", "Firestream", "50",
-                "Discard a Fire Energy card attached to Blaziken. If you do, this attack does 10 damage to each of your opponent's Benched Pokémon." +
-                        " (Don't apply Weakness and Resistance for Benched Pokémon.)");
-
-        List<PokemonAbility> blazikenAbilities = new ArrayList<>();
-        List<PokemonAttack> blazikenAttacks = new ArrayList<>();
-
-        for(int i=0; i < 2; i++){
-            blazikenAbilities.add(firestarter);
-        }
-
-        for(int i=0; i < 4; i++){
-            blazikenAttacks.add(firestream);
-        }
-
-        return new PokemonCardPokemon("Blaziken", "Estágio 02", "Sun & Moon", "Guardians Rising", "sm2",
-                "01", "", "Fogo", "100", "Água x2", "Planta -20", "2", blazikenAbilities, blazikenAttacks);
-    }
-
-    private void fillCardInfo(PokemonCardPokemon pokemon) {
+    private void fillCardInfo() {
 
         TextView name = findViewById(R.id.activity_pokemon_card_pokemon_name);
         TextView hp = findViewById(R.id.activity_pokemon_card_pokemon_hp_value);
@@ -144,7 +137,7 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
         pokemonType.setText(pokemon.getPokemonType());
         cardType.setText(pokemon.getCardType());
         weakness.setText(pokemon.getWeakness());
-        resistance.setText(pokemon.getWeakness());
+        resistance.setText(pokemon.getResistance());
         retreatCost.setText(pokemon.getRetreatCost());
 
 

@@ -1,6 +1,8 @@
 package com.arthurpaiva96.tcgtext.model.pokemon;
 
-public class PokemonCard {
+import java.io.Serializable;
+
+public class PokemonCard implements Serializable {
 
     String name;
     String cardType;

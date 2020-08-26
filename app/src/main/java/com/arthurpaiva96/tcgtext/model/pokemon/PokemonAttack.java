@@ -1,6 +1,8 @@
 package com.arthurpaiva96.tcgtext.model.pokemon;
 
-public class PokemonAttack {
+import java.io.Serializable;
+
+public class PokemonAttack implements Serializable {
     String cost;
     String name;
     String damage;
