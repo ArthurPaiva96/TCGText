@@ -3,6 +3,7 @@ package com.arthurpaiva96.tcgtext.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
@@ -32,10 +33,25 @@ public class PokemonCardsListView {
         this.context = context;
     }
 
+    public void configureSearchView(SearchView searchView, ListView pokemonCardList) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                configureListView(pokemonCardList, searchView.getQuery());
+                return false;
+            }
 
-    public void configureListView(ListView pokemonCardList) {
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+    }
 
-        this.adapter = new PokemonCardListAdapter(getPokemonCardsList(), context);
+
+    private void configureListView(ListView pokemonCardList, CharSequence cardName) {
+
+        this.adapter = new PokemonCardListAdapter(getPokemonCardsList(cardName), context);
 
         pokemonCardList.setAdapter(adapter);
 
@@ -56,12 +72,12 @@ public class PokemonCardsListView {
         context.startActivity(intent);
     }
 
-    public List<PokemonCard> getPokemonCardsList(){
+    public List<PokemonCard> getPokemonCardsList(CharSequence cardName){
 
         ArrayList<PokemonCard> pokemonCardArrayList = new ArrayList<PokemonCard>();
 
         PokemonService service = new PokemonRetrofit().getPokemonService();
-        Call<PokemonCardJsonArray> call = service.getCardByName("Audino");
+        Call<PokemonCardJsonArray> call = service.getCardByName(cardName.toString());
 
         getPokemonCardsFromAPI(pokemonCardArrayList, call);
 
