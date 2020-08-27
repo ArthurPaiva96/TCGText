@@ -42,6 +42,7 @@ public class PokemonCardsListView {
         pokemonCardList.setOnItemClickListener((adapterView, view, position, l) ->
                 startActivityToShowPokemonCard(position, pokemonCardList));
 
+
     }
 
     private void startActivityToShowPokemonCard(int position, ListView pokemonCardList) {
@@ -60,7 +61,7 @@ public class PokemonCardsListView {
         ArrayList<PokemonCard> pokemonCardArrayList = new ArrayList<PokemonCard>();
 
         PokemonService service = new PokemonRetrofit().getPokemonService();
-        Call<PokemonCardJsonArray> call = service.getCardByName("New Theory");
+        Call<PokemonCardJsonArray> call = service.getCardByName("Audino");
 
         getPokemonCardsFromAPI(pokemonCardArrayList, call);
 
@@ -76,6 +77,8 @@ public class PokemonCardsListView {
                 PokemonCardJsonArray pokemonCards = response.body();
 
                 addJsonCardsToCardsList(pokemonCards, pokemonCardArrayList);
+
+                PokemonCardsListView.this.adapter.notifyDataSetChanged();
             }
 
 

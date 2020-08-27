@@ -65,4 +65,5 @@ public class PokemonCardListAdapter extends BaseAdapter {
         cardSetCode.setText(pokemonCard.getSetCode());
         cardNumber.setText(pokemonCard.getNumber());
     }
+
 }
