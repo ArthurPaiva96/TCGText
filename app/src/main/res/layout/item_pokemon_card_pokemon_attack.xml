@@ -59,8 +59,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:padding="5dp"
-                android:paddingBottom="10dp"
+                android:padding="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_pokemon_attack_name"
                 tools:text="Descarte um card de Energia de Fogo anexado a Blaziken. Se você fizer isso, este ataque causará 10 de dano a cada um dos Pokémon de Banco de seu oponente. (Não aplique Fraqueza e Resistência para Pokémon de Banco.)" />

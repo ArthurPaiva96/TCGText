@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
 import com.arthurpaiva96.tcgtext.retrofit.PokemonRetrofit;
-import com.arthurpaiva96.tcgtext.retrofit.service.JsonObjectToPokemonCard;
+import com.arthurpaiva96.tcgtext.retrofit.service.JsonObjectToPokemonCardObject;
 import com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray;
 import com.arthurpaiva96.tcgtext.retrofit.service.PokemonService;
 import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardActivity;
@@ -28,16 +28,25 @@ public class PokemonCardsListView {
 
     private final Context context;
     private PokemonCardListAdapter adapter;
+    private static List<PokemonCard> pokemonCardsListStatic;
 
     public PokemonCardsListView(Context context) {
         this.context = context;
     }
 
     public void configureSearchView(SearchView searchView, ListView pokemonCardList) {
+
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setQuery(null,false);
+
+        if(pokemonCardsListStatic != null) configureListView(pokemonCardList);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                configureListView(pokemonCardList, searchView.getQuery());
+
+                pokemonCardsListStatic = getPokemonCardsList(searchView.getQuery());
+                configureListView(pokemonCardList);
                 return false;
             }
 
@@ -49,9 +58,9 @@ public class PokemonCardsListView {
     }
 
 
-    private void configureListView(ListView pokemonCardList, CharSequence cardName) {
+    private void configureListView(ListView pokemonCardList) {
 
-        this.adapter = new PokemonCardListAdapter(getPokemonCardsList(cardName), context);
+        this.adapter = new PokemonCardListAdapter(pokemonCardsListStatic, context);
 
         pokemonCardList.setAdapter(adapter);
 
@@ -65,7 +74,7 @@ public class PokemonCardsListView {
         PokemonCard pokemonCard = (PokemonCard) pokemonCardList.getItemAtPosition(position);
         Intent intent = new Intent(context, PokemonCardActivity.class);
 
-        if(JsonObjectToPokemonCard.cardIsAPokemon(pokemonCard.getCardType()))
+        if(JsonObjectToPokemonCardObject.cardIsAPokemon(pokemonCard.getCardType()))
             intent =  new Intent(context, PokemonCardPokemonActivity.class);
 
         intent.putExtra(POKEMON_CARD_EXTRA_STRING, pokemonCard);
@@ -75,6 +84,9 @@ public class PokemonCardsListView {
     public List<PokemonCard> getPokemonCardsList(CharSequence cardName){
 
         ArrayList<PokemonCard> pokemonCardArrayList = new ArrayList<PokemonCard>();
+
+        //TODO intenet not found
+        if(!UtilTCGText.checkInternetConnection(context)) return pokemonCardArrayList;
 
         PokemonService service = new PokemonRetrofit().getPokemonService();
         Call<PokemonCardJsonArray> call = service.getCardByName(cardName.toString());
@@ -109,11 +121,13 @@ public class PokemonCardsListView {
 
         for(PokemonCardJsonArray.PokemonCardJson card : pokemonCards.getCards()){
 
-            pokemonCardArrayList.add(JsonObjectToPokemonCard.getPokemonCardObject(card));
+            pokemonCardArrayList.add(JsonObjectToPokemonCardObject.getPokemonCardObject(card));
 
         }
-    }
 
+        UtilTCGText.makeToastIfCardNotFound(pokemonCardArrayList, context);
+
+    }
 
 
 

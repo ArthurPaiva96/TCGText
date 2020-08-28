@@ -44,9 +44,10 @@ public class PokemonCardPokemonView {
         TextView name = createdView.findViewById(R.id.item_pokemon_card_pokemon_ability_name);
         TextView text = createdView.findViewById(R.id.item_pokemon_card_pokemon_ability_text);
 
-        type.setText(pokemonAbility.getType());
-        name.setText(pokemonAbility.getName());
-        text.setText(pokemonAbility.getText());
+
+        UtilTCGText.translateText(pokemonAbility.getType(), type);
+        UtilTCGText.translateText(pokemonAbility.getName(), name);
+        UtilTCGText.translateText(pokemonAbility.getText(), text);
 
     }
 
@@ -75,10 +76,11 @@ public class PokemonCardPokemonView {
         TextView damage = createdView.findViewById(R.id.item_pokemon_card_pokemon_attack_damage);
         TextView text = createdView.findViewById(R.id.item_pokemon_card_pokemon_attack_text);
 
-        cost.setText(pokemonAttack.getCost());
-        name.setText(pokemonAttack.getName());
         damage.setText(pokemonAttack.getDamage());
-        text.setText(pokemonAttack.getText());
+
+        UtilTCGText.translateText(pokemonAttack.getCost(), cost);
+        UtilTCGText.translateText(pokemonAttack.getName(), name);
+        UtilTCGText.translateText(pokemonAttack.getText(), text);
 
     }
 }

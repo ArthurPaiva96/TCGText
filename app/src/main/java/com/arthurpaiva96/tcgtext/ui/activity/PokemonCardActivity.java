@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.arthurpaiva96.tcgtext.R;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCardPokemon;
+import com.arthurpaiva96.tcgtext.ui.UtilTCGText;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;
 
@@ -41,9 +42,9 @@ public class PokemonCardActivity extends AppCompatActivity {
         TextView type = findViewById(R.id.activity_pokemon_card_card_type_value);
         TextView text = findViewById(R.id.activity_pokemon_card_card_text_value);
 
-        name.setText(card.getName());
-        type.setText(card.getCardType());
-        text.setText(card.getText());
+        UtilTCGText.translateText(card.getName(), name);
+        UtilTCGText.translateText(card.getCardType(), type);
+        UtilTCGText.translateText(card.getText(), text);
 
     }
 

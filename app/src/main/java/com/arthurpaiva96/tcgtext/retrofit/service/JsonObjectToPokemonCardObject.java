@@ -11,7 +11,7 @@ import java.util.List;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_POKEMON_SUPERTYPE;
 
-public class JsonObjectToPokemonCard {
+public class JsonObjectToPokemonCardObject {
 
 
 
@@ -51,6 +51,7 @@ public class JsonObjectToPokemonCard {
     }
 
     private static String getCardType(PokemonCardJsonArray.PokemonCardJson card){
+        if(card.getSubtype().isEmpty()) return card.getSupertype();
         return card.getSupertype() + " - " + card.getSubtype();
     }
 

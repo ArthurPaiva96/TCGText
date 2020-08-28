@@ -3,12 +3,15 @@ package com.arthurpaiva96.tcgtext.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.arthurpaiva96.tcgtext.R;
@@ -16,6 +19,14 @@ import com.arthurpaiva96.tcgtext.model.pokemon.PokemonAbility;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonAttack;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCardPokemon;
 import com.arthurpaiva96.tcgtext.ui.PokemonCardPokemonView;
+import com.arthurpaiva96.tcgtext.ui.UtilTCGText;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.translate.TranslateLanguage;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.Translator;
+import com.google.mlkit.nl.translate.TranslatorOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,17 +69,27 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
         TextView resistance = findViewById(R.id.activity_pokemon_card_pokemon_resistance_value);
         TextView retreatCost = findViewById(R.id.activity_pokemon_card_pokemon_retreat_value);
 
+
+
         name.setText(pokemon.getName());
         hp.setText(pokemon.gethP());
-        pokemonType.setText(pokemon.getPokemonType());
-        cardType.setText(pokemon.getCardType());
-        weakness.setText(pokemon.getWeakness());
-        resistance.setText(pokemon.getResistance());
-        retreatCost.setText(pokemon.getRetreatCost());
+
+        UtilTCGText.translateText(pokemon.getPokemonType(), pokemonType);
+        UtilTCGText.translateText(pokemon.getCardType(), cardType);
+        UtilTCGText.translateText(pokemon.getWeakness(), weakness);
+        UtilTCGText.translateText(pokemon.getResistance(), resistance);
+        UtilTCGText.translateText(pokemon.getRetreatCost(), retreatCost);
 
         fillAbilitiesInfo();
         fillAttacksInfo();
 
+    }
+
+
+
+    private void fillAbilitiesInfo() {
+        LinearLayout pokemonAbilities = findViewById(R.id.activity_pokemon_card_pokemon_text_relative_layout);
+        pokemonCardPokemonView.configurePokemonAbilitiesList(pokemon, pokemonAbilities);
     }
 
     private void fillAttacksInfo() {
@@ -76,9 +97,11 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
         pokemonCardPokemonView.configurePokemonAttacksList(pokemon, pokemonAttacks);
     }
 
-    private void fillAbilitiesInfo() {
-        LinearLayout pokemonAbilities = findViewById(R.id.activity_pokemon_card_pokemon_text_relative_layout);
-        pokemonCardPokemonView.configurePokemonAbilitiesList(pokemon, pokemonAbilities);
-    }
+
+
+
+
+
+
 
 }
