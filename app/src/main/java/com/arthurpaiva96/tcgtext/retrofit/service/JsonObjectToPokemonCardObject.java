@@ -75,8 +75,9 @@ public class JsonObjectToPokemonCardObject {
 
             for (PokemonCardJsonArray.PokemonCardJson.Attack attack : attacksList) {
 
-                pokemonAttacks.add(new PokemonAttack(attack.getCost().toString(), attack.getName(), attack.getDamage(),
-                        attack.getText()));
+                pokemonAttacks.add(new PokemonAttack(
+                        attack.getCost().toString().replaceAll("[\\[\\],]", ""),
+                        attack.getName(), attack.getDamage(), attack.getText()));
             }
 
         }
@@ -101,7 +102,7 @@ public class JsonObjectToPokemonCardObject {
 
                 pokemonResistance += card.getResistances().get(i).getType() + " " +
                         card.getResistances().get(i).getValue();
-                if (i != card.getTypes().size() - 1) pokemonResistance += "/";
+                if (i != card.getResistances().size() - 1) pokemonResistance += " ";
 
             }
 
@@ -118,7 +119,7 @@ public class JsonObjectToPokemonCardObject {
 
                 pokemonWeakness += card.getWeaknesses().get(i).getType() + " " +
                         card.getWeaknesses().get(i).getValue();
-                if (i != card.getTypes().size() - 1) pokemonWeakness += "/";
+                if (i != card.getWeaknesses().size() - 1) pokemonWeakness += " ";
 
             }
         }
@@ -131,7 +132,7 @@ public class JsonObjectToPokemonCardObject {
         for(int i = 0; i < card.getTypes().size(); i++){
 
             pokemonType += card.getTypes().get(i);
-            if(i != card.getTypes().size() -1 ) pokemonType += "/";
+            if(i != card.getTypes().size() -1 ) pokemonType += " ";
         }
 
         return pokemonType;

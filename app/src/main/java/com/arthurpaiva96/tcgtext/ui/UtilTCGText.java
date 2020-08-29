@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.arthurpaiva96.tcgtext.dictionary.PokemonTCGDictionary;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
 import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardsListActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import static com.arthurpaiva96.tcgtext.ui.Constants.CARD_NOT_FOUND;
 import static com.arthurpaiva96.tcgtext.ui.Constants.LANGUAGE_MODELS_DOWNLOADED;
 import static com.arthurpaiva96.tcgtext.ui.Constants.NO_INTERNET_CONNECTION;
+import static com.arthurpaiva96.tcgtext.ui.Constants.NO_WIFI_CONNECTION;
 
 public class UtilTCGText {
 
@@ -68,8 +70,7 @@ public class UtilTCGText {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Model couldn’t be downloaded or other internal error.
-                        // ...
+                        Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -103,7 +104,8 @@ public class UtilTCGText {
     }
 
     private static void translateTextView(Translator englishToPortugueseTranslator, String textToTranslate, TextView textView) {
-        englishToPortugueseTranslator.translate(textToTranslate)
+        String textWithGameTermsTranslated = PokemonTCGDictionary.translateGameTerms(textToTranslate);
+        englishToPortugueseTranslator.translate(textWithGameTermsTranslated)
                 .addOnSuccessListener(
                         new OnSuccessListener<String>() {
                             @Override

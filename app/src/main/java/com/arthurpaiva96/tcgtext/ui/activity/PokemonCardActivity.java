@@ -42,7 +42,7 @@ public class PokemonCardActivity extends AppCompatActivity {
         TextView type = findViewById(R.id.activity_pokemon_card_card_type_value);
         TextView text = findViewById(R.id.activity_pokemon_card_card_text_value);
 
-        UtilTCGText.translateText(card.getName(), name);
+        name.setText(card.getName());
         UtilTCGText.translateText(card.getCardType(), type);
         UtilTCGText.translateText(card.getText(), text);
 
