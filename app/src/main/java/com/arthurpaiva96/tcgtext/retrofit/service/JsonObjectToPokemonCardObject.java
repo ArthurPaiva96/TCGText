@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_POKEMON_SUPERTYPE;
+import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_TYPE_SEPARATOR;
 
 public class JsonObjectToPokemonCardObject {
 
@@ -52,7 +53,7 @@ public class JsonObjectToPokemonCardObject {
 
     private static String getCardType(PokemonCardJsonArray.PokemonCardJson card){
         if(card.getSubtype().isEmpty()) return card.getSupertype();
-        return card.getSupertype() + " - " + card.getSubtype();
+        return card.getSupertype() + POKEMON_CARD_TYPE_SEPARATOR + card.getSubtype();
     }
 
     private static String getCardText(PokemonCardJsonArray.PokemonCardJson card) {

@@ -15,18 +15,21 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            >
 
             <TextView
                 android:id="@+id/activity_pokemon_card_card_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:padding="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_card_type_text"
                 tools:text="Professora Juniper" />
 
             <TextView
@@ -38,10 +41,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_name"
                 app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_card_text_text"
                 app:layout_constraintEnd_toStartOf="@id/activity_pokemon_card_card_type_value"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_name" />
+                />
 
 
             <TextView
@@ -51,9 +55,10 @@
                 android:layout_margin="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_name"
                 app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_card_text_text"
                 app:layout_constraintStart_toEndOf="@id/activity_pokemon_card_card_type_text"
-                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_name"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 tools:text="Treinador - Apoiador" />
 
@@ -67,16 +72,21 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_type_text" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_type_text"
+                app:layout_constraintBottom_toTopOf="@id/activity_pokemon_card_card_text_value"
+                />
 
             <TextView
                 android:id="@+id/activity_pokemon_card_card_text_value"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_pokemon_card_card_text_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="Discard your hand and draw 7 cards."/>
 
 

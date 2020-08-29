@@ -109,6 +109,8 @@ public class PokemonTCGDictionary {
                 return "cara.";
             case "tails.":
                 return "coroa.";
+            case "turn":
+                return "turno";
 
             default:
                 return word;

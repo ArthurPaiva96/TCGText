@@ -47,17 +47,20 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_divisor" />
 
 
-    <ListView
-        android:id="@+id/activity_pokemon_cards_list_list_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_pokemon_cards_list_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:divider="@null"
         android:dividerHeight="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_pokemon_cards_list_search_bar"
         tools:listitem="@layout/item_pokemon_card" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

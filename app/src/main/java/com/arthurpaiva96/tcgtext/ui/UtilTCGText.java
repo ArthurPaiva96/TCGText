@@ -78,11 +78,14 @@ public class UtilTCGText {
 
     public static void translateText(String textToTranslate, TextView textView) {
 
+        textView.setText(textToTranslate);
+
         final Translator englishToPortugueseTranslator = Translation.getClient(options);
 
         DownloadConditions conditions = new DownloadConditions.Builder()
                 .requireWifi()
                 .build();
+
         englishToPortugueseTranslator.downloadModelIfNeeded(conditions)
                 .addOnSuccessListener(
                         new OnSuccessListener<Void>() {
@@ -96,7 +99,7 @@ public class UtilTCGText {
                         new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                textView.setText(textToTranslate);
+
                             }
                         });
 
@@ -104,7 +107,9 @@ public class UtilTCGText {
     }
 
     private static void translateTextView(Translator englishToPortugueseTranslator, String textToTranslate, TextView textView) {
+        
         String textWithGameTermsTranslated = PokemonTCGDictionary.translateGameTerms(textToTranslate);
+
         englishToPortugueseTranslator.translate(textWithGameTermsTranslated)
                 .addOnSuccessListener(
                         new OnSuccessListener<String>() {
