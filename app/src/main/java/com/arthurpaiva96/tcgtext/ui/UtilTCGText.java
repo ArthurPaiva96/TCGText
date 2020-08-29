@@ -52,13 +52,26 @@ public class UtilTCGText {
         if(cardsArrayList == null || cardsArrayList.isEmpty()) Toast.makeText(context, CARD_NOT_FOUND, Toast.LENGTH_LONG).show();
     }
 
+    private static DownloadConditions getWifiCondition() {
+        return new DownloadConditions.Builder()
+                .requireWifi()
+                .build();
+    }
+
+    private static boolean connectedToWifi(Context context){
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
+    }
+
     public static void downloadEnglishToPortugueseText(Context context) {
+
+        final Toast toastNoWifiConnection = Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG);
+
+        if(!connectedToWifi(context)) toastNoWifiConnection.show();
 
         Translator englishToPortuguese = Translation.getClient(options);
 
-        englishToPortuguese.downloadModelIfNeeded(new DownloadConditions.Builder()
-                .requireWifi()
-                .build())
+        englishToPortuguese.downloadModelIfNeeded(getWifiCondition())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void v) {
@@ -70,7 +83,7 @@ public class UtilTCGText {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG).show();
+                        toastNoWifiConnection.show();
                     }
                 });
 
@@ -82,11 +95,7 @@ public class UtilTCGText {
 
         final Translator englishToPortugueseTranslator = Translation.getClient(options);
 
-        DownloadConditions conditions = new DownloadConditions.Builder()
-                .requireWifi()
-                .build();
-
-        englishToPortugueseTranslator.downloadModelIfNeeded(conditions)
+        englishToPortugueseTranslator.downloadModelIfNeeded(getWifiCondition())
                 .addOnSuccessListener(
                         new OnSuccessListener<Void>() {
                             @Override
@@ -107,7 +116,7 @@ public class UtilTCGText {
     }
 
     private static void translateTextView(Translator englishToPortugueseTranslator, String textToTranslate, TextView textView) {
-        
+
         String textWithGameTermsTranslated = PokemonTCGDictionary.translateGameTerms(textToTranslate);
 
         englishToPortugueseTranslator.translate(textWithGameTermsTranslated)
