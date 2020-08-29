@@ -3,19 +3,14 @@ package com.arthurpaiva96.tcgtext.ui;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.arthurpaiva96.tcgtext.dictionary.PokemonTCGDictionary;
-import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
-import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardsListActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.mlkit.common.model.DownloadConditions;
 import com.google.mlkit.nl.translate.TranslateLanguage;
 import com.google.mlkit.nl.translate.Translation;
@@ -58,16 +53,8 @@ public class UtilTCGText {
                 .build();
     }
 
-    private static boolean connectedToWifi(Context context){
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return connectivityManager.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
-    }
 
     public static void downloadEnglishToPortugueseText(Context context) {
-
-        final Toast toastNoWifiConnection = Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG);
-
-        if(!connectedToWifi(context)) toastNoWifiConnection.show();
 
         Translator englishToPortuguese = Translation.getClient(options);
 
@@ -83,7 +70,7 @@ public class UtilTCGText {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        toastNoWifiConnection.show();
+                        Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG).show();
                     }
                 });
 

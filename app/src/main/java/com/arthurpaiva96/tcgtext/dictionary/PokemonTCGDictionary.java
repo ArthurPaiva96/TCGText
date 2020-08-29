@@ -111,6 +111,10 @@ public class PokemonTCGDictionary {
                 return "coroa.";
             case "turn":
                 return "turno";
+            case "times":
+                return "vezes";
+            case "damage":
+                return "dano";
 
             default:
                 return word;
