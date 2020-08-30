@@ -1,4 +1,4 @@
-package com.arthurpaiva96.tcgtext.ui.activity;
+package com.arthurpaiva96.tcgtext.ui.activity.pokemontcg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,13 +24,13 @@ public class PokemonCardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pokemon_card);
 
         Intent intent = getIntent();
-        if(intent.hasExtra(POKEMON_CARD_EXTRA_STRING)){
+        if(intent != null && intent.hasExtra(POKEMON_CARD_EXTRA_STRING)){
 
             card = (PokemonCard) intent.getSerializableExtra(POKEMON_CARD_EXTRA_STRING);
 
             fillCardInfo();
 
-            //TODO set title as the card code
+            setTitle(card.getSerie() + " " + card.getSetCode() + " " + card.getNumber());
         }
 
 

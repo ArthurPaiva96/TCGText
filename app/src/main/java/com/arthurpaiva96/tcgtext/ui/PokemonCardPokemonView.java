@@ -45,7 +45,7 @@ public class PokemonCardPokemonView {
         TextView text = createdView.findViewById(R.id.item_pokemon_card_pokemon_ability_text);
 
 
-        UtilTCGText.translateText(pokemonAbility.getType(), type);
+        type.setText(pokemonAbility.getType());
         UtilTCGText.translateText(pokemonAbility.getName(), name);
         UtilTCGText.translateText(pokemonAbility.getText(), text);
 

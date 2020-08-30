@@ -1,13 +1,9 @@
 package com.arthurpaiva96.tcgtext.ui;
 
 import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
@@ -15,8 +11,7 @@ import com.arthurpaiva96.tcgtext.retrofit.PokemonRetrofit;
 import com.arthurpaiva96.tcgtext.retrofit.service.JsonObjectToPokemonCardObject;
 import com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray;
 import com.arthurpaiva96.tcgtext.retrofit.service.PokemonService;
-import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardActivity;
-import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardPokemonActivity;
+import com.arthurpaiva96.tcgtext.ui.activity.pokemontcg.PokemonCardActivity;
 import com.arthurpaiva96.tcgtext.ui.adapter.PokemonCardListAdapter;
 
 import java.util.ArrayList;
@@ -25,8 +20,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;
 
 public class PokemonCardsListView {
 

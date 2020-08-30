@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PokemonCardActivity"></activity>
-        <activity android:name=".ui.activity.PokemonCardPokemonActivity" />
-        <activity android:name=".ui.activity.PokemonCardsListActivity">
+        <activity android:name=".ui.activity.pokemontcg.PokemonCardActivity"></activity>
+        <activity android:name=".ui.activity.pokemontcg.PokemonCardPokemonActivity" />
+        <activity android:name=".ui.activity.pokemontcg.PokemonCardsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

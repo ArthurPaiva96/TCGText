@@ -23,9 +23,12 @@
 
             <TextView
                 android:id="@+id/item_pokemon_card_pokemon_attack_cost"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_pokemon_attack_text"
+                app:layout_constraintEnd_toStartOf="@id/item_pokemon_card_pokemon_attack_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Fogo/Incolor/Incolor" />
@@ -34,34 +37,40 @@
                 android:id="@+id/item_pokemon_card_pokemon_attack_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_pokemon_attack_cost"
                 app:layout_constraintEnd_toStartOf="@id/item_pokemon_card_pokemon_attack_damage"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_pokemon_attack_cost"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_pokemon_card_pokemon_attack_cost"
+                app:layout_constraintVertical_bias="0.0"
                 tools:text="Fire Stream" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_pokemon_attack_damage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textSize="18sp"
+                android:layout_marginEnd="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_pokemon_attack_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_pokemon_attack_name"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_pokemon_card_pokemon_attack_name"
+                app:layout_constraintVertical_bias="0.5"
                 tools:text="50" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_pokemon_attack_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginEnd="8dp"
                 android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_pokemon_attack_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/item_pokemon_card_pokemon_attack_cost"
+                app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_pokemon_attack_cost"
                 tools:text="Descarte um card de Energia de Fogo anexado a Blaziken. Se você fizer isso, este ataque causará 10 de dano a cada um dos Pokémon de Banco de seu oponente. (Não aplique Fraqueza e Resistência para Pokémon de Banco.)" />
 
 

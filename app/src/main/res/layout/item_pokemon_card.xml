@@ -9,9 +9,8 @@
         android:id="@+id/item_pokemon_card_cardview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:paddingBottom="20dp"
         app:cardCornerRadius="10dp"
+        android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,8 +19,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/item_pokemon_card_name"
@@ -41,28 +39,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
                 android:text="@string/item_pokemon_card_type_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_set_name"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_name"
                 app:layout_constraintEnd_toStartOf="@id/item_pokemon_card_type_value"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_name"
                 app:layout_constraintTop_toTopOf="@id/item_pokemon_card_name"
-                app:layout_constraintVertical_bias="0.51" />
+                app:layout_constraintVertical_bias="0.50" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_type_value"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_set_name"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_type_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_type_text"
                 app:layout_constraintTop_toTopOf="@id/item_pokemon_card_type_text"
-                app:layout_constraintVertical_bias="0.0"
                 tools:text="Pokémon" />
 
 
@@ -70,38 +65,37 @@
                 android:id="@+id/item_pokemon_card_serie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_number_text"
                 app:layout_constraintEnd_toStartOf="@id/item_pokemon_card_set_name"
                 app:layout_constraintStart_toStartOf="@id/item_pokemon_card_name"
-                app:layout_constraintTop_toTopOf="@id/item_pokemon_card_set_name"
+                app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_name"
                 tools:text="Sun &amp; Moon" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_set_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_number_text"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_serie"
                 app:layout_constraintEnd_toEndOf="@id/item_pokemon_card_set_code"
                 app:layout_constraintStart_toEndOf="@+id/item_pokemon_card_serie"
-                app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_type_text"
+                app:layout_constraintTop_toTopOf="@id/item_pokemon_card_serie"
                 tools:text="Guardians Rising" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_set_code"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_number_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_set_name"
                 app:layout_constraintEnd_toEndOf="@id/item_pokemon_card_type_value"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_set_name"
                 app:layout_constraintTop_toTopOf="@id/item_pokemon_card_set_name"
-                app:layout_constraintVertical_bias="0.96"
                 tools:text="sm2" />
 
             <TextView
@@ -112,29 +106,24 @@
                 android:layout_marginBottom="8dp"
                 android:paddingBottom="10dp"
                 android:text="@string/item_pokemon_card_number_text"
-                android:textSize="18sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/item_pokemon_card_number_value"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/item_pokemon_card_serie"
+                app:layout_constraintStart_toStartOf="@id/item_pokemon_card_name"
                 app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_serie" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_number_value"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:paddingBottom="10dp"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_number_text"
                 app:layout_constraintEnd_toEndOf="@id/item_pokemon_card_serie"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_number_text"
-                app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_serie"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintTop_toTopOf="@id/item_pokemon_card_number_text"
+                app:layout_constraintVertical_bias="0.08"
                 tools:text="38" />
 
 

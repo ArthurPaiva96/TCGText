@@ -1,4 +1,4 @@
-package com.arthurpaiva96.tcgtext.ui.activity;
+package com.arthurpaiva96.tcgtext.ui.activity.pokemontcg;
 
 import android.os.Bundle;
 import android.widget.SearchView;

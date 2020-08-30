@@ -9,7 +9,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:paddingBottom="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,33 +25,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toTopOf="@id/item_pokemon_card_pokemon_ability_text"
+                app:layout_constraintEnd_toStartOf="@id/item_pokemon_card_pokemon_ability_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Poké-POWER"/>
+                tools:text="Poké-POWER" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_pokemon_ability_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/item_pokemon_card_pokemon_ability_type"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/item_pokemon_card_pokemon_ability_type"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_pokemon_card_pokemon_ability_type"
+                app:layout_constraintVertical_bias="0.0"
                 tools:text="Firestarter" />
 
             <TextView
                 android:id="@+id/item_pokemon_card_pokemon_ability_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:padding="5dp"
+                android:layout_marginEnd="8dp"
                 android:paddingBottom="10dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/item_pokemon_card_pokemon_ability_type"
                 app:layout_constraintTop_toBottomOf="@id/item_pokemon_card_pokemon_ability_type"
-                tools:text="Uma vez durante o seu turno (antes do ataque), você pode anexar um card de Energia do Fogo de sua pilha de descarte a 1 de seus Pokémon no Banco. Este poder não pode ser usado se Blaziken for afetado por uma condição especial."
-                />
+                tools:text="Uma vez durante o seu turno (antes do ataque), você pode anexar um card de Energia do Fogo de sua pilha de descarte a 1 de seus Pokémon no Banco. Este poder não pode ser usado se Blaziken for afetado por uma condição especial." />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

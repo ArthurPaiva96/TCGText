@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.arthurpaiva96.tcgtext.R;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
 import com.arthurpaiva96.tcgtext.retrofit.service.JsonObjectToPokemonCardObject;
-import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardActivity;
-import com.arthurpaiva96.tcgtext.ui.activity.PokemonCardPokemonActivity;
+import com.arthurpaiva96.tcgtext.ui.activity.pokemontcg.PokemonCardActivity;
+import com.arthurpaiva96.tcgtext.ui.activity.pokemontcg.PokemonCardPokemonActivity;
 
 import java.util.List;
 
