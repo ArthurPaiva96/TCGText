@@ -126,13 +126,13 @@ public class PokemonTCGDictionary {
 
     public static String translateGameTerms(String text){
         String[] textWords = text.split(" ");
-        String textWithGameTermsTranslated = "";
+        StringBuilder textWithGameTermsTranslated = new StringBuilder();
         for(int i = 0; i < textWords.length; i++){
-            textWithGameTermsTranslated += englishPortuguesePokemonTCGTermsDictionary(textWords[i]);
-            if((i != textWords.length -1) && !textWords[i+1].matches("[.|,]")) textWithGameTermsTranslated += " ";
+            textWithGameTermsTranslated.append(englishPortuguesePokemonTCGTermsDictionary(textWords[i]));
+            if((i != textWords.length -1) && !textWords[i+1].matches("[.|,]")) textWithGameTermsTranslated.append(" ");
         }
 
-        return textWithGameTermsTranslated;
+        return textWithGameTermsTranslated.toString();
     }
 
 }

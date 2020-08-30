@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.arthurpaiva96.tcgtext.R;
 import com.arthurpaiva96.tcgtext.ui.PokemonCardsListView;
 
+import java.util.Objects;
+
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_LIST_TITLE;
 
 public class PokemonCardsListActivity extends AppCompatActivity {
 
-    PokemonCardsListView pokemonCardsListView = new PokemonCardsListView(PokemonCardsListActivity.this);
+    final PokemonCardsListView pokemonCardsListView = new PokemonCardsListView(PokemonCardsListActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ public class PokemonCardsListActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_pokemon_cards_list);
         setTitle(POKEMON_CARD_LIST_TITLE);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         SearchView searchView = findViewById(R.id.activity_pokemon_cards_list_search_bar);
         final RecyclerView pokemonCardList = findViewById(R.id.activity_pokemon_cards_list_recycler_view);

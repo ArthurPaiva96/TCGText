@@ -11,7 +11,6 @@ import com.arthurpaiva96.tcgtext.retrofit.PokemonRetrofit;
 import com.arthurpaiva96.tcgtext.retrofit.service.JsonObjectToPokemonCardObject;
 import com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray;
 import com.arthurpaiva96.tcgtext.retrofit.service.PokemonService;
-import com.arthurpaiva96.tcgtext.ui.activity.pokemontcg.PokemonCardActivity;
 import com.arthurpaiva96.tcgtext.ui.adapter.PokemonCardListAdapter;
 
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.internal.EverythingIsNonNull;
 
 public class PokemonCardsListView {
 
@@ -66,7 +66,7 @@ public class PokemonCardsListView {
 
     public List<PokemonCard> getPokemonCardsList(CharSequence cardName){
 
-        ArrayList<PokemonCard> pokemonCardArrayList = new ArrayList<PokemonCard>();
+        ArrayList<PokemonCard> pokemonCardArrayList = new ArrayList<>();
 
         if(!UtilTCGText.checkInternetConnection(context)) return pokemonCardArrayList;
 
@@ -83,16 +83,20 @@ public class PokemonCardsListView {
         call.enqueue(new Callback<PokemonCardJsonArray>() {
 
             @Override
+            @EverythingIsNonNull
             public void onResponse(Call<PokemonCardJsonArray> call, Response<PokemonCardJsonArray> response) {
                 PokemonCardJsonArray pokemonCards = response.body();
 
-                addJsonCardsToCardsList(pokemonCards, pokemonCardArrayList);
+                if(pokemonCards != null) {
+                    addJsonCardsToCardsList(pokemonCards, pokemonCardArrayList);
 
-                PokemonCardsListView.this.adapter.notifyDataSetChanged();
+                    PokemonCardsListView.this.adapter.notifyDataSetChanged();
+                }
             }
 
 
             @Override
+            @EverythingIsNonNull
             public void onFailure(Call<PokemonCardJsonArray> call, Throwable t) {
                 Toast.makeText(context.getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }

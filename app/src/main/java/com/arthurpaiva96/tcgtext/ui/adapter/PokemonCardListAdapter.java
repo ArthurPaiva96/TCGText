@@ -24,7 +24,7 @@ import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;
 public class PokemonCardListAdapter extends RecyclerView.Adapter<PokemonCardListAdapter.PokemonCardViewHolder> {
 
     private final List<PokemonCard> pokemonCardsList;
-    private Context context;
+    private final Context context;
 
     public PokemonCardListAdapter(List<PokemonCard> pokemonCardsList, Context context){
         this.pokemonCardsList = pokemonCardsList;
@@ -95,12 +95,7 @@ public class PokemonCardListAdapter extends RecyclerView.Adapter<PokemonCardList
         }
 
         private void configureClickListener(PokemonCard pokemonCard){
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivityToShowPokemonCard(pokemonCard);
-                }
-            });
+            itemView.setOnClickListener(view -> startActivityToShowPokemonCard(pokemonCard));
         }
 
         private void startActivityToShowPokemonCard(PokemonCard pokemonCard) {

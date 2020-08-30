@@ -6,7 +6,6 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item_pokemon_card_cardview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
@@ -38,7 +37,7 @@
                 android:id="@+id/item_pokemon_card_type_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/item_pokemon_card_type_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"

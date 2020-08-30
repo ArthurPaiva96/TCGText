@@ -6,11 +6,7 @@ import android.net.NetworkInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import com.arthurpaiva96.tcgtext.dictionary.PokemonTCGDictionary;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.common.model.DownloadConditions;
 import com.google.mlkit.nl.translate.TranslateLanguage;
 import com.google.mlkit.nl.translate.Translation;
@@ -26,7 +22,7 @@ import static com.arthurpaiva96.tcgtext.ui.Constants.NO_WIFI_CONNECTION;
 
 public class UtilTCGText {
 
-    private static TranslatorOptions options = new TranslatorOptions.Builder()
+    private static final TranslatorOptions options = new TranslatorOptions.Builder()
             .setSourceLanguage(TranslateLanguage.ENGLISH)
             .setTargetLanguage(TranslateLanguage.PORTUGUESE)
             .build();
@@ -59,20 +55,8 @@ public class UtilTCGText {
         Translator englishToPortuguese = Translation.getClient(options);
 
         englishToPortuguese.downloadModelIfNeeded(getWifiCondition())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void v) {
-
-                        Toast.makeText(context,LANGUAGE_MODELS_DOWNLOADED,Toast.LENGTH_LONG).show();
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG).show();
-                    }
-                });
+                .addOnSuccessListener(v -> Toast.makeText(context,LANGUAGE_MODELS_DOWNLOADED,Toast.LENGTH_LONG).show())
+                .addOnFailureListener(e -> Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG).show());
 
     }
 
@@ -84,19 +68,10 @@ public class UtilTCGText {
 
         englishToPortugueseTranslator.downloadModelIfNeeded(getWifiCondition())
                 .addOnSuccessListener(
-                        new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void v) {
-
-                                translateTextView(englishToPortugueseTranslator, textToTranslate, textView);
-                            }
-                        })
+                        v -> translateTextView(englishToPortugueseTranslator, textToTranslate, textView))
                 .addOnFailureListener(
-                        new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
+                        e -> {
 
-                            }
                         });
 
 
@@ -108,19 +83,11 @@ public class UtilTCGText {
 
         englishToPortugueseTranslator.translate(textWithGameTermsTranslated)
                 .addOnSuccessListener(
-                        new OnSuccessListener<String>() {
-                            @Override
-                            public void onSuccess(@NonNull String translatedText) {
-                                textView.setText(translatedText);
-                            }
-                        })
+                        textView::setText)
                 .addOnFailureListener(
-                        new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Error.
-                                // ...
-                            }
+                        e -> {
+                            // Error.
+                            // ...
                         });
     }
 }

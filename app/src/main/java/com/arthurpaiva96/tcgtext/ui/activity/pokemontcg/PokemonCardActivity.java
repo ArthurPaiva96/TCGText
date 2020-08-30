@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.arthurpaiva96.tcgtext.R;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
-import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCardPokemon;
 import com.arthurpaiva96.tcgtext.ui.UtilTCGText;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;

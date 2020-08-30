@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson ability" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson attacks" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray cards" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Attack cost" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Attack damage" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson hp" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson name" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Attack name" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Ability name" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson number" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson resistances" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson series" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson set" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson setCode" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson subtype" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson supertype" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson text" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Attack text" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Ability text" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Weakness type" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Ability type" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Resistance type" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson types" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Weakness value" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Resistance value" />
+      <entry_point TYPE="field" FQNAME="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson weaknesses" />
+    </entry_points>
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Ability" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Attack" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Weakness" method="getType" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Resistance" method="getType" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Weakness" method="getValue" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Resistance" method="getValue" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Resistance" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson.Weakness" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray.PokemonCardJson" />
+    <pattern value="com.arthurpaiva96.tcgtext.retrofit.service.PokemonCardJsonArray" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

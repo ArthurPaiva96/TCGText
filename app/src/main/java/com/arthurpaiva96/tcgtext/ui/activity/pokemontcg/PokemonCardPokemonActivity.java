@@ -18,7 +18,7 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
 
     private PokemonCardPokemon pokemon;
 
-    private PokemonCardPokemonView pokemonCardPokemonView = new PokemonCardPokemonView(PokemonCardPokemonActivity.this);
+    private final PokemonCardPokemonView pokemonCardPokemonView = new PokemonCardPokemonView(PokemonCardPokemonActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

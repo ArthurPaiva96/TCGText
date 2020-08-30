@@ -6,7 +6,7 @@ import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCardPokemon;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_POKEMON_SUPERTYPE;
@@ -57,15 +57,15 @@ public class JsonObjectToPokemonCardObject {
     }
 
     private static String getCardText(PokemonCardJsonArray.PokemonCardJson card) {
-        String cardText = "";
+        StringBuilder cardText = new StringBuilder();
         if(card.getText() != null) {
 
             for (String text : card.getText()) {
-                cardText += text + "\n";
+                cardText.append(text).append("\n");
             }
 
         }
-        return cardText;
+        return cardText.toString();
     }
 
     private static List<PokemonAttack> getPokemonAttacks(ArrayList<PokemonCardJsonArray.PokemonCardJson.Attack> attacksList) {
@@ -90,53 +90,51 @@ public class JsonObjectToPokemonCardObject {
 
         if(ability == null) return new ArrayList<>();
 
-        return Arrays.asList(new PokemonAbility(ability.getType(), ability.getName(), ability.getText()));
+        return Collections.singletonList(new PokemonAbility(ability.getType(), ability.getName(), ability.getText()));
     }
 
     private static String getPokemonResistances(PokemonCardJsonArray.PokemonCardJson card) {
 
-        String pokemonResistance = "";
+        StringBuilder pokemonResistance = new StringBuilder();
 
         if(card.getResistances() != null) {
 
             for (int i = 0; i < card.getResistances().size(); i++) {
 
-                pokemonResistance += card.getResistances().get(i).getType() + " " +
-                        card.getResistances().get(i).getValue();
-                if (i != card.getResistances().size() - 1) pokemonResistance += " ";
+                pokemonResistance.append(card.getResistances().get(i).getType()).append(" ").append(card.getResistances().get(i).getValue());
+                if (i != card.getResistances().size() - 1) pokemonResistance.append(" ");
 
             }
 
         }
-        return pokemonResistance;
+        return pokemonResistance.toString();
     }
 
     private static String getPokemonWeakness(PokemonCardJsonArray.PokemonCardJson card) {
-        String pokemonWeakness = "";
+        StringBuilder pokemonWeakness = new StringBuilder();
 
         if(card.getWeaknesses() != null) {
 
             for (int i = 0; i < card.getWeaknesses().size(); i++) {
 
-                pokemonWeakness += card.getWeaknesses().get(i).getType() + " " +
-                        card.getWeaknesses().get(i).getValue();
-                if (i != card.getWeaknesses().size() - 1) pokemonWeakness += " ";
+                pokemonWeakness.append(card.getWeaknesses().get(i).getType()).append(" ").append(card.getWeaknesses().get(i).getValue());
+                if (i != card.getWeaknesses().size() - 1) pokemonWeakness.append(" ");
 
             }
         }
-        return pokemonWeakness;
+        return pokemonWeakness.toString();
 
     }
 
     private static String getPokemonTypes(PokemonCardJsonArray.PokemonCardJson card) {
-        String pokemonType = "";
+        StringBuilder pokemonType = new StringBuilder();
         for(int i = 0; i < card.getTypes().size(); i++){
 
-            pokemonType += card.getTypes().get(i);
-            if(i != card.getTypes().size() -1 ) pokemonType += " ";
+            pokemonType.append(card.getTypes().get(i));
+            if(i != card.getTypes().size() -1 ) pokemonType.append(" ");
         }
 
-        return pokemonType;
+        return pokemonType.toString();
     }
 
 

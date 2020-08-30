@@ -3,9 +3,9 @@ package com.arthurpaiva96.tcgtext.model.pokemon;
 import java.io.Serializable;
 
 public class PokemonAbility implements Serializable {
-    String type;
-    String name;
-    String text;
+    final String type;
+    final String name;
+    final String text;
 
     public PokemonAbility(String type, String name, String text) {
         this.type = type;
@@ -17,23 +17,12 @@ public class PokemonAbility implements Serializable {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getText() {
         return text;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
 }
