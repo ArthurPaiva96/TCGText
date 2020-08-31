@@ -1,6 +1,7 @@
 package com.arthurpaiva96.tcgtext.ui;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.TextView;
@@ -15,10 +16,12 @@ import com.google.mlkit.nl.translate.TranslatorOptions;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
 import static com.arthurpaiva96.tcgtext.ui.Constants.CARD_NOT_FOUND;
 import static com.arthurpaiva96.tcgtext.ui.Constants.LANGUAGE_MODELS_DOWNLOADED;
 import static com.arthurpaiva96.tcgtext.ui.Constants.NO_INTERNET_CONNECTION;
 import static com.arthurpaiva96.tcgtext.ui.Constants.NO_WIFI_CONNECTION;
+import static com.arthurpaiva96.tcgtext.ui.Constants.SHARED_PREFERENCES_SETTINGS_FILE_KEY;
 
 public class UtilTCGText {
 
@@ -49,18 +52,37 @@ public class UtilTCGText {
                 .build();
     }
 
+    public static void setSwitchSettingSharedPreferences(Context context, String setting, boolean value){
 
-    public static void downloadEnglishToPortugueseText(Context context) {
+        SharedPreferences settingsSharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_SETTINGS_FILE_KEY, MODE_PRIVATE);
+        SharedPreferences.Editor editor = settingsSharedPreferences.edit();
+        editor.putBoolean(setting, value);
+        editor.commit();
+
+    }
+
+    public static boolean getSwitchSettingSharedPreferences(Context context, String setting){
+        SharedPreferences settingsSharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_SETTINGS_FILE_KEY, MODE_PRIVATE);
+        return settingsSharedPreferences.getBoolean(setting, false);
+    }
+
+    public static void downloadEnglishToPortugueseText(Context context, String setting, boolean value) {
 
         Translator englishToPortuguese = Translation.getClient(options);
 
         englishToPortuguese.downloadModelIfNeeded(getWifiCondition())
-                .addOnSuccessListener(v -> Toast.makeText(context,LANGUAGE_MODELS_DOWNLOADED,Toast.LENGTH_LONG).show())
+                .addOnSuccessListener(v -> {
+
+                    setSwitchSettingSharedPreferences(context, setting, value);
+
+                    Toast.makeText(context,LANGUAGE_MODELS_DOWNLOADED,Toast.LENGTH_LONG).show();
+
+                })
                 .addOnFailureListener(e -> Toast.makeText(context, NO_WIFI_CONNECTION, Toast.LENGTH_LONG).show());
 
     }
 
-    public static void translateText(String textToTranslate, TextView textView) {
+    public static void translateText(String textToTranslate, TextView textView, boolean toTranslate) {
 
         textView.setText(textToTranslate);
 
@@ -68,8 +90,12 @@ public class UtilTCGText {
 
         englishToPortugueseTranslator.downloadModelIfNeeded(getWifiCondition())
                 .addOnSuccessListener(
-                        v -> translateTextView(englishToPortugueseTranslator, textToTranslate, textView))
-                .addOnFailureListener(
+                        v -> {
+
+                            if(toTranslate) translateTextView(englishToPortugueseTranslator, textToTranslate, textView);
+
+                        }
+                ).addOnFailureListener(
                         e -> {
 
                         });

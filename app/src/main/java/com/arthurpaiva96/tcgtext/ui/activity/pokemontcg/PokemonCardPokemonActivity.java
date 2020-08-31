@@ -13,21 +13,23 @@ import com.arthurpaiva96.tcgtext.ui.PokemonCardPokemonView;
 import com.arthurpaiva96.tcgtext.ui.UtilTCGText;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;
+import static com.arthurpaiva96.tcgtext.ui.Constants.SHARED_PREFERENCES_POKEMON_MACHINE_TRANSLATION_STRING;
 
 public class PokemonCardPokemonActivity extends AppCompatActivity {
 
     private PokemonCardPokemon pokemon;
 
-    private final PokemonCardPokemonView pokemonCardPokemonView = new PokemonCardPokemonView(PokemonCardPokemonActivity.this);
+    private PokemonCardPokemonView pokemonCardPokemonView;
+
+    private boolean toTranslateCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_card_pokemon);
 
-
-
-        //TODO create a view for the activity
+        toTranslateCard = UtilTCGText.getSwitchSettingSharedPreferences(this, SHARED_PREFERENCES_POKEMON_MACHINE_TRANSLATION_STRING);
+        pokemonCardPokemonView = new PokemonCardPokemonView(PokemonCardPokemonActivity.this);
 
         Intent intent = getIntent();
         if(intent.hasExtra(POKEMON_CARD_EXTRA_STRING)){
@@ -39,6 +41,8 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
             setTitle(pokemon.getSerie() + " " + pokemon.getSetCode() + " " + pokemon.getNumber());
 
         }
+
+
 
     }
 
@@ -57,11 +61,11 @@ public class PokemonCardPokemonActivity extends AppCompatActivity {
         name.setText(pokemon.getName());
         hp.setText(pokemon.gethP());
 
-        UtilTCGText.translateText(pokemon.getPokemonType(), pokemonType);
-        UtilTCGText.translateText(pokemon.getCardType(), cardType);
-        UtilTCGText.translateText(pokemon.getWeakness(), weakness);
-        UtilTCGText.translateText(pokemon.getResistance(), resistance);
-        UtilTCGText.translateText(pokemon.getRetreatCost(), retreatCost);
+        UtilTCGText.translateText(pokemon.getPokemonType(), pokemonType, toTranslateCard);
+        UtilTCGText.translateText(pokemon.getCardType(), cardType, toTranslateCard);
+        UtilTCGText.translateText(pokemon.getWeakness(), weakness, toTranslateCard);
+        UtilTCGText.translateText(pokemon.getResistance(), resistance, toTranslateCard);
+        UtilTCGText.translateText(pokemon.getRetreatCost(), retreatCost, toTranslateCard);
 
         fillAbilitiesInfo();
         fillAttacksInfo();

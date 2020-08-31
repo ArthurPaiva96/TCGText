@@ -15,5 +15,8 @@
     <string name="activity_pokemon_card_pokemon_treat_text">Custo de Recuar:</string>
     <string name="activity_pokemon_card_card_type_text_text">"Tipo:"</string>
     <string name="activity_pokemon_card_card_text_text">Texto da carta:</string>
+    <string name="activity_main_menu_pokemontcg_text">Buscar cartas de Pokémon</string>
+    <string name="activity_main_menu_settings">Configurações</string>
+    <string name="activity_settings_pokemontcg_machine_translation">Tradução de máquina das cartas de Pokémon</string>
     <!-- Strings used for fragments for navigation -->
 </resources>

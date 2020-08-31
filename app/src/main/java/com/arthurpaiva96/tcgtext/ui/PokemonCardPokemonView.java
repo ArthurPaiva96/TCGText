@@ -12,12 +12,18 @@ import com.arthurpaiva96.tcgtext.model.pokemon.PokemonAbility;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonAttack;
 import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCardPokemon;
 
+import static com.arthurpaiva96.tcgtext.ui.Constants.SHARED_PREFERENCES_POKEMON_MACHINE_TRANSLATION_STRING;
+
 public class PokemonCardPokemonView {
 
     private final Context context;
 
+    private final boolean toTranslateCard;
+
     public PokemonCardPokemonView (Context context){
+
         this.context = context;
+        this.toTranslateCard = UtilTCGText.getSwitchSettingSharedPreferences(context, SHARED_PREFERENCES_POKEMON_MACHINE_TRANSLATION_STRING);
     }
 
     public void configurePokemonAbilitiesList(PokemonCardPokemon pokemon, LinearLayout pokemonAbilities) {
@@ -46,8 +52,8 @@ public class PokemonCardPokemonView {
 
 
         type.setText(pokemonAbility.getType());
-        UtilTCGText.translateText(pokemonAbility.getName(), name);
-        UtilTCGText.translateText(pokemonAbility.getText(), text);
+        UtilTCGText.translateText(pokemonAbility.getName(), name, toTranslateCard);
+        UtilTCGText.translateText(pokemonAbility.getText(), text, toTranslateCard);
 
     }
 
@@ -78,9 +84,9 @@ public class PokemonCardPokemonView {
 
         damage.setText(pokemonAttack.getDamage());
 
-        UtilTCGText.translateText(pokemonAttack.getCost(), cost);
-        UtilTCGText.translateText(pokemonAttack.getName(), name);
-        UtilTCGText.translateText(pokemonAttack.getText(), text);
+        UtilTCGText.translateText(pokemonAttack.getCost(), cost, toTranslateCard);
+        UtilTCGText.translateText(pokemonAttack.getName(), name, toTranslateCard);
+        UtilTCGText.translateText(pokemonAttack.getText(), text, toTranslateCard);
 
     }
 }

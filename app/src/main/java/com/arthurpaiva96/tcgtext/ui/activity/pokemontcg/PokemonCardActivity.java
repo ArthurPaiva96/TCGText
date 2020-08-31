@@ -11,15 +11,21 @@ import com.arthurpaiva96.tcgtext.model.pokemon.PokemonCard;
 import com.arthurpaiva96.tcgtext.ui.UtilTCGText;
 
 import static com.arthurpaiva96.tcgtext.ui.Constants.POKEMON_CARD_EXTRA_STRING;
+import static com.arthurpaiva96.tcgtext.ui.Constants.SHARED_PREFERENCES_POKEMON_MACHINE_TRANSLATION_STRING;
 
 public class PokemonCardActivity extends AppCompatActivity {
 
     private PokemonCard card;
 
+    private boolean toTranslateCard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_card);
+
+        toTranslateCard = UtilTCGText.getSwitchSettingSharedPreferences(this, SHARED_PREFERENCES_POKEMON_MACHINE_TRANSLATION_STRING);
+
 
         Intent intent = getIntent();
         if(intent != null && intent.hasExtra(POKEMON_CARD_EXTRA_STRING)){
@@ -41,8 +47,8 @@ public class PokemonCardActivity extends AppCompatActivity {
         TextView text = findViewById(R.id.activity_pokemon_card_card_text_value);
 
         name.setText(card.getName());
-        UtilTCGText.translateText(card.getCardType(), type);
-        UtilTCGText.translateText(card.getText(), text);
+        UtilTCGText.translateText(card.getCardType(), type, toTranslateCard);
+        UtilTCGText.translateText(card.getText(), text, toTranslateCard);
 
     }
 
